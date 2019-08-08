@@ -1,1 +1,2 @@
-Following tutorials by Joey de Vries. learnopengl.com
+Following tutorials by Joey de Vries.
+https://learnopengl.com
