@@ -15,7 +15,7 @@ struct Light
 	vec3 diffuse;
 	vec3 specular;
 
-	vec3 position;
+	vec3 direction;
 };
 
 in vec3 normal;
@@ -31,7 +31,8 @@ void main()
 	vec3 ambient = light.ambient * vec3(texture(material.diffuse, texCoords));
 
 	vec3 norm = normalize(normal);
-	vec3 lightDir = normalize(light.position - cubePosition);
+	//vec3 lightDir = normalize(light.position - cubePosition);
+	vec3 lightDir = normalize(-light.direction);  
 	float diff = max(dot(norm, lightDir), 0.0);
 	vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, texCoords));
 

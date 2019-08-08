@@ -1,0 +1,18 @@
+﻿  App.cpp
+  glad.c
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  w:\learnopengl\learnopengl\dependencies\glad\include\glad\glad.h(32): note: see previous definition of 'APIENTRY'
+App.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z)
+App.obj : error LNK2019: unresolved external symbol glfwSetFramebufferSizeCallback referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z)
+App.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+App.obj : error LNK2019: unresolved external symbol glfwGetProcAddress referenced in function main
+w:\LearnOpenGL\LearnOpenGL\Dependencies\GLFW\lib\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+w:\LearnOpenGL\LearnOpenGL\bin\Debug-x64\LearnOpenGL.exe : fatal error LNK1120: 12 unresolved externals
