@@ -132,6 +132,7 @@ int main()
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	float vertices[] = {
+		// positions          // normals           // texture coords
 		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
 		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
 		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
@@ -237,25 +238,23 @@ int main()
 		glClearColor(0.2f, 0.5f, 0.7f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// set light position
-		//float lightX = 2.0f * sin(glfwGetTime());
-		//float lightY = -0.3f;
-		//float lightZ = 1.5f * cos(glfwGetTime());
-		//glm::vec3 lightPos = glm::vec3(lightX, lightY, lightZ);
-
-		//glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
-
 		cubeShader.Use();
 
-		cubeShader.setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
-		cubeShader.setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
+		cubeShader.setVec3("light.ambient", 0.1f, 0.1f, 0.1f);
+		cubeShader.setVec3("light.diffuse", 0.8f, 0.8f, 0.8f);
 		cubeShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
-
-		cubeShader.setVec3("light.direction", -0.2f, -1.0f, -0.3f);
-		cubeShader.setVec3("viewPosition", camera.Position);
-
-		cubeShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f); // specular lighting doesn't have full effect on this object's material
 		cubeShader.setFloat("material.shininess", 32.0f);
+
+		cubeShader.setFloat("light.constant", 1.0f);
+		cubeShader.setFloat("light.linear", 0.09f);
+		cubeShader.setFloat("light.quadratic", 0.032f);
+
+
+		cubeShader.setVec3("light.position", camera.Position);
+		cubeShader.setVec3("light.direction", camera.Front);
+		cubeShader.setFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
+		cubeShader.setFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));
+		cubeShader.setVec3("viewPosition", camera.Position);
 
 		glm::mat4 model = glm::mat4(1.0f);
 		glm::mat4 view = camera.GetViewMatrix();

@@ -14,7 +14,7 @@ uniform mat4 projection;
 
 void main()
 {
-	normal = normalVecsPositions;
+	normal = mat3(transpose(inverse(model))) * normalVecsPositions;
 	cubePosition = vec3(model * vec4(positions, 1.0));
 	texCoords = textureCoords;
 
